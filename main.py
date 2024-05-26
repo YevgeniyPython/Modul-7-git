@@ -101,14 +101,7 @@ nowday = datetime.now()
 
 @input_error
 def birthdays(book):
-    upcoming_birthdays_list = []
-    for name, record in book.items():
-        if record.birthday:
-            this_year_birthday = record.birthday.value.replace(year=nowday.year)
-            difference = (nowday - this_year_birthday).days
-            if difference >= -7 and difference <= 0:
-                upcoming_birthdays_list.append(f"{name}'s birthday is coming up on {this_year_birthday.strftime("%d.%m.%Y")}")
-    return upcoming_birthdays_list
+    return book.birthdays()
 
 
 
